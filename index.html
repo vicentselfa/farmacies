@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Farmàcies de guàrdia a Carcaixent 1.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+	<!--  Els estils utilitzats --------------------------------------------------- -->
+	<link href="css/ui-lightness/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.8.2.js"></script>
+	<script src="js/jquery-ui-1.9.1.custom.js"></script>
+	
+	<!-- Els botons per mostrar les farmàcies ----------------------------------------> 
+	<link rel="stylesheet"  href="css/boto.css" type="text/css" />
+	<link rel="stylesheet"  href="css/farmacies.css" type="text/css" />
+
+	<!----------------------- API Google maps ------------------------------------- -->    
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	
+	<!----------------------- El codi jQuery del DatePicker------------------------------------------------------ -->    
+    <script>
+      $(function() {
+		  $( "#datepicker" ).datepicker();
+		  $.datepicker.regional['es'] = {
+				closeText: 'Cerrar',
+				prevText: '<Ant',
+				nextText: 'Sig>',
+				currentText: 'Hoy',
+				monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+				monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+				dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+				dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+				dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+				weekHeader: 'Sm',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''
+			};
+			$.datepicker.setDefaults($.datepicker.regional['es']);
+		}); 
+    </script>    
+    
+   <!--  Les funcions JS ------------------------------------------------------ -->
+   <script type="text/javascript">
+ 	  	// El array mesos / dies
+		var data = new Array(13);
+		for (var i=0; i<13; i++ ) {
+			data[i] = new Array (31);
+		}	
+		// El array per a la informació de les farmàcies
+		var farmacies = new Array(9); // farmacies (0) NO la utilitzarem
+ 	</script>
+   <script src='funcionsFarmacies.js'> </script>   	
+	<script type="text/javascript">
+	
+		function getDia() { // Data amb format dd/mm/aa
+			 var mes = document.getElementById('datepicker').value;
+			 mes=mes.substring(0,2);
+			 return mes;
+		}
+		function getMes() { // Data amb format dd/mm/aa 
+			 var dia = document.getElementById('datepicker').value;
+			 dia=dia.substring(3,5);
+			 return dia;
+		}
+		function fechaActual(){ // Mostra la data actual quan carreguem l'aplicació
+			 var fecha=new Date();
+			 var dia = fecha.getDate();
+			 var mes = fecha.getMonth() + 1; // Gener és 0 !!!
+			 //alert ("D: " + dia + " M: " + mes);
+			 if(dia < 10){ dia='0'+ dia}
+			 if(mes <10) { mes='0'+ mes}
+			 var res= dia + "/" + mes + "/" + fecha.getFullYear();
+			 document.getElementById('datepicker').value=res;
+		}
+	</script>
+	<script src='mapes.js'> </script>    
+    
+  </head>
+  <body onLoad = "fechaActual(); initialize(1);" >
+	<p align=center> <class id='text' > Dia: </class>
+		<input type="text"  id="datepicker" readonly='readonly' onchange='initialize(1)' /><br>
+		<input type="button"  class="classname" onClick='initialize(2)' value =' Mostra TOTES LES farmàcies'/>
+	</p>
+    <div id="mapa"></div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+
+html {  margin: 0; padding: 0; width:100%; height: 100%;      }
+
+body {  margin-top: -16px; padding: 0; width:100%; height: 100%; 
+
+     }
+
+#titol {font-family:verdana, serif; 
+      		  border-width: 2px; border-style: solid; border-color: navy; width:100%;
+      		  background-color:navy;   color: #FFFFFF; 
+      		  text-align: center;
+      		  font-size: 20px;
+      }
+      
+#mapa { 
+			margin-top: -16px; margin-left: 2px;  
+			width: 99%; height: 90%;      
+			border: 1px solid; border-color: navy;
+      }
+      
+#text  {font-family:verdana, serif; font-size: 18px; background-color: yellow;  }	  
+
+#datepicker {
+			text-align: center;
+			font-family: calibri, arial, sans-serif;
+			font-size: 20px; 
+			color: navy;
+			background-color: white;
+			border-width: 1px; border-style: solid; border-color: navy;
+			padding: 0px;
+			max-width:130px;
+	}

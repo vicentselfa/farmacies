@@ -1,0 +1,20 @@
+
+Programa: Les farmàcies a Carcaixent
+------------------------------------
+Versió 1.2.
+	Comencem a preparar la versió amb jQuery Mobile
+	Introduïm la gestió de versions amb git
+Versió 1.1. 
+   Apareix el teclat en el mòbil! 
+		Però si type="button" en el datepicker, en el mòbil no funciona!!
+	Suprimit el botó: Mostrar farmàcia de guàrdia. 
+		Ho fa automàticament (mètode onChange en datepicker)
+	Canvi de calendari al DataPicker de jQuery
+	Canvi nom carpeta fotos: fotosFarmacies
+	Canvi nom carpeta images: imatges
+Versió 1.0.1.- 
+	Corregit el problema de que la farmàcia està de guàrdia fins les 9 del dia següent
+	Començat el tema de les rutes
+varsio 1.0 Adapatada a pantalla de mòbil
+Versió 0.5: Primera versió del programa
+
